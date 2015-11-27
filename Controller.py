@@ -2,10 +2,13 @@
 # -*- coding: utf-8 -*-
 
 from bottle import request, route, run, template, response, static_file;
-from datetime import datetime
 from passlib.hash import sha256_crypt
+from datetime import datetime
 
-import database_API as db # Module for database connection
+import sys
+sys.path.append('database') # adding database path
+
+import API_dataBase as db # Module for database connection
 import random
 import json
 import re
@@ -172,7 +175,7 @@ def loginWindow():
 	if sessionUser != None:
 		return redirectToProfile(sessionUser['Username']);
 
-	return template('login', user=sessionUser); #Show login screen
+	return redirectLogin(); #Show login screen
 
 @route('/login', method='POST')
 def login():

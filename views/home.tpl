@@ -1,4 +1,3 @@
-    
     % include ('header.tpl', title='Hola')
     
     <style type="text/css">
