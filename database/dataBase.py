@@ -65,10 +65,7 @@ def createTableList(cursor):
 	SQLtables.append(tagTable);
 
 	return SQLtables;
-	#cursor.execute("DROP TABLE IF EXISTS Notes")
-	#cursor.execute("DROP TABLE IF EXISTS University")
-	#cursor.execute("CREATE TABLE University(Nombre_Univ TEXT, Comunidad TEXT, Plazas INTEGER, PRIMARY KEY(Nombre_Univ))")
-
+	
 def deleteDatabase(cursor):
 	cursor.execute("DROP TABLE IF EXISTS User");
 	cursor.execute("DROP TABLE IF EXISTS Tag");
@@ -84,29 +81,12 @@ def createDatabase(cursor, tables):
 tables = createTableList(cursor);
 createDatabase(cursor, tables);
 
+#Inserting predefined colours into Database
 cursor.execute("insert into Colors values ('black', '000000')");
 cursor.execute("insert into Colors values ('red', '960009')");
 cursor.execute("insert into Colors values ('blue', '001F96')");
 cursor.execute("insert into Colors values ('green', '009688')");
 cursor.execute("insert into Colors values ('purple', '8F0096')");
-
-#cursor.execute("insert into User values (NULL,'jorge@ferreiro.com', '123', 'ferreiro', 'Jorge', 'Garcia', '16/03/1995', 'Madrid', 0)");
-#cursor.execute("insert into Tag values ('Hello', 1, 1, '000000')");
-
-#cursor.execute("insert into User values (NULL,'test@example.com', '123', 'tomasso', 'Tommaso', 'Innocenti', '30/09/1991', 'Arezzo', 0)");
-#cursor.execute("insert into Notes values (NULL, 2, 'How to make pasta','how-make-pasta' ,'So. We have to call Luigi.', '16/03/2015', '16/03/2020', 1, 0)");
-#cursor.execute("insert into Tag values ('Hello', 2, 2, '000000')");
-
-#cursor.execute("insert into User values (NULL,'test1@example.com', '123', 'paco', 'Paco', 'Innocenti', '30/09/1991', 'Arezzo', 0)");
-#cursor.execute("insert into User values (NULL,'test2@example.com', '123', 'susana', 'Susana', 'Innocenti', '30/09/1991', 'Arezzo', 0)");
-
-#cursor.execute("Select * from Tag where Tag.UserID=1 and Tag.TagNameID='Hello'");
-#cursor.execute("Select * from User where User.UserID=1");
-#cursor.execute("Select DISTINCT Email from Tag join User on Tag.TagNameID='Hello' ");
-#cursor.execute("Select DISTINCT Email from Tag join User on Tag.TagNameID='Hello' ");
-
-#for t in cursor:
-#	print t;
 
 conn.commit()
 cursor.close()
