@@ -171,11 +171,11 @@ def loginWindow():
 @route('/login')
 def loginWindow():
 	sessionUser = checkCookiesSessionUser();
-
+	print "hola"
 	if sessionUser != None:
 		return redirectToProfile(sessionUser['Username']);
 
-	return redirectLogin(); #Show login screen
+	return template('login', user=sessionUser); #Show login screen
 
 @route('/login', method='POST')
 def login():
